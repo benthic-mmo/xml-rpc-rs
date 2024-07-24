@@ -53,7 +53,7 @@ use std::io::{self, Write};
 /// ```
 #[derive(Clone, Debug, PartialEq)]
 pub enum Value {
-    /// A 32-bit signed integer (`<i4>` or `<int>`).
+    /// A 32-bit signed integer (`<int>`).
     Int(i32),
     /// A 64-bit signed integer (`<i8>`).
     ///
@@ -112,7 +112,7 @@ impl Value {
 
         match *self {
             Value::Int(i) => {
-                write!(fmt, "<i4>{}</i4>", i)?;
+                write!(fmt, "<int>{}</int>", i)?;
             }
             Value::Int64(i) => {
                 write!(fmt, "<i8>{}</i8>", i)?;

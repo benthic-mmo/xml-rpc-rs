@@ -290,7 +290,7 @@ impl<'a, R: Read> Parser<'a, R> {
                         };
                         Value::Base64(data)
                     }
-                    "i4" | "int" => {
+                    "int" => {
                         self.next()?;
                         let value = self
                             .expect_value("integer", |data| data.parse::<i32>().map(Value::Int))?;
@@ -603,7 +603,7 @@ mod tests {
             read_value(
                 r#"
                 <value><array><data>
-                    <value><i4>5</i4></value>
+                    <value><int>5</int></value>
                     <value><string>a</string></value>
                 </data></array></value>"#
             ),
