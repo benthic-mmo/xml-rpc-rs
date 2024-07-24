@@ -1,14 +1,14 @@
 [package]
 authors = ["Jonas Schievink <jonasschievink@gmail.com>"]
-description = "An XML-RPC implementation for Rust"
+description = "An XML-RPC implementation for Rust, for use with opensimulator"
 documentation = "https://docs.rs/xmlrpc/"
 repository = "https://github.com/jonas-schievink/xml-rpc-rs.git"
 keywords = ["xml", "rpc", "remote", "ipc"]
 categories = ["network-programming", "encoding"]
 readme = "README.md"
 license = "CC0-1.0"
-name = "xmlrpc"
-version = "0.15.1"
+name = "xmlrpc_benthic"
+version = "0.0.0"
 
 # cargo-release configuration
 [package.metadata.release]
