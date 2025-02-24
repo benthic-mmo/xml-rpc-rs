@@ -1,14 +1,14 @@
 [package]
-authors = ["Jonas Schievink <jonasschievink@gmail.com>"]
-description = "An XML-RPC implementation for Rust"
+authors = ["Jonas Schievink <jonasschievink@gmail.com>, Skyler Clark <skylerjaneclark@gmailcom>"]
+description = "An XML-RPC implementation for use with OpenSim viewer project Benthic"
 documentation = "https://docs.rs/xmlrpc/"
 repository = "https://github.com/jonas-schievink/xml-rpc-rs.git"
 keywords = ["xml", "rpc", "remote", "ipc"]
 categories = ["network-programming", "encoding"]
 readme = "README.md"
 license = "CC0-1.0"
-name = "xmlrpc"
-version = "0.15.1"
+name = "xmlrpc_benthic"
+version = "0.0.1"
 
 # cargo-release configuration
 [package.metadata.release]
@@ -41,7 +41,7 @@ maintenance = { status = "actively-developed" }
 [dependencies]
 # public
 iso8601 = "0.4.0"
-reqwest = { version = "0.11.0", features = [ "blocking" ], default-features = false, optional = true }
+reqwest = { version = "0.11.0", features = ["blocking"], default-features = false, optional = true }
 # private
 mime = { version = "0.3", optional = true }
 base64 = "0.13.0"
@@ -54,6 +54,7 @@ version-sync = "0.9"
 http = ["reqwest", "mime"]
 tls = ["reqwest/default-tls"]
 default = ["http", "tls"]
+reqwest = ["dep:reqwest"]
 
 [[example]]
 name = "client"

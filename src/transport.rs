@@ -71,6 +71,7 @@ pub mod http {
     use {Request, Transport};
 
     use std::error::Error;
+    use std::io::Read;
     use std::str::FromStr;
 
     /// Appends all HTTP headers required by the XML-RPC specification to the `RequestBuilder`.
@@ -145,8 +146,10 @@ pub mod http {
             // and not doing anything else that could return an `Err` in `write_as_xml()`.
             request.write_as_xml(&mut body).unwrap();
 
-            let response = build_headers(self, body.len() as u64).body(body).send()?;
-
+            let mut response = build_headers(self, body.len() as u64).body(body).send()?;
+            let mut body = Vec::new();
+            response.read_to_end(&mut body)?;
+            println!("BODY IS: {:?}", body);
             check_response(&response)?;
 
             Ok(response)
